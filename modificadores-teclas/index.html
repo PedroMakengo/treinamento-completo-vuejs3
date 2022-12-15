@@ -15,6 +15,13 @@
       <input @keyup.enter="onKey" placeholder="Tecla enter" />
       <br />
       <input @keyup.enter.esc="onKey" placeholder="Tecla Enter Esc" />
+      <br />
+      <input @keyup.enter.arrow-up="onKey" placeholder="Seta para cima" />
+      <br />
+      <input
+        @keyup.ctrl.enter.exact="onKey"
+        placeholder="Teclas CTRL e Enter"
+      />
     </div>
 
     <script type="text/javascript">
