@@ -11,6 +11,7 @@
   <body>
     <div id="app">
       <p>{{curso}}</p>
+      <p>{{cursoInvertido}}</p>
     </div>
 
     <script type="text/javascript">
@@ -19,6 +20,11 @@
           return {
             curso: "Curso de VueJS",
           };
+        },
+        computed: {
+          cursoInvertido() {
+            return this.curso.split("").reverse().join("");
+          },
         },
       };
 
