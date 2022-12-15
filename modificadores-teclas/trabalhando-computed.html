@@ -12,6 +12,7 @@
     <div id="app">
       <p>{{curso}}</p>
       <p>{{cursoInvertido}}</p>
+      <input @keyup.enter="alterarNomeDoCurso" />
     </div>
 
     <script type="text/javascript">
@@ -24,6 +25,11 @@
         computed: {
           cursoInvertido() {
             return this.curso.split("").reverse().join("");
+          },
+        },
+        methods: {
+          alterarNomeDoCurso(event) {
+            this.curso = event.target.value;
           },
         },
       };
