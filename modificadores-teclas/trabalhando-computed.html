@@ -10,8 +10,9 @@
   </head>
   <body>
     <div id="app">
-      <p>{{curso}}</p>
-      <p>{{cursoInvertido}}</p>
+      <p>Nome original: {{curso}}</p>
+      <p>Nome invertido (computed) {{cursoInvertidoComputed}}</p>
+      <p>Nome invertido (method) {{cursoInvertidoMethod()}}</p>
       <input @keyup.enter="alterarNomeDoCurso" />
     </div>
 
@@ -23,13 +24,16 @@
           };
         },
         computed: {
-          cursoInvertido() {
+          cursoInvertidoComputed() {
             return this.curso.split("").reverse().join("");
           },
         },
         methods: {
           alterarNomeDoCurso(event) {
             this.curso = event.target.value;
+          },
+          cursoInvertidoMethod() {
+            return this.curso.split("").reverse().join("");
           },
         },
       };
