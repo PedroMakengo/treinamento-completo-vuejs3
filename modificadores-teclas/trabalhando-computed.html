@@ -13,6 +13,11 @@
       <p>Nome original: {{curso}}</p>
       <p>Nome invertido (computed) {{cursoInvertidoComputed}}</p>
       <p>Nome invertido (method) {{cursoInvertidoMethod()}}</p>
+      <p>Autor: {{nomeDoAutorInteiro ? 'Plínio Naves': 'Plínio'}}</p>
+      <button @click="nomeDoAutorInteiro = !nomeDoAutorInteiro">
+        Alterar nome do autor
+      </button>
+      <br />
       <input @keyup.enter="alterarNomeDoCurso" />
     </div>
 
@@ -21,10 +26,12 @@
         data() {
           return {
             curso: "Curso de VueJS",
+            nomeDoAutorInteiro: false,
           };
         },
         computed: {
           cursoInvertidoComputed() {
+            console.log("Computed!");
             return this.curso.split("").reverse().join("");
           },
         },
@@ -33,6 +40,7 @@
             this.curso = event.target.value;
           },
           cursoInvertidoMethod() {
+            console.log("Method!");
             return this.curso.split("").reverse().join("");
           },
         },
