@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuejs - Guia Completo</title>
+
+    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input :value="nome" @input="nome = $event.target.value" /> <br />
+      <input :value="nome" v-model="nome" />
+      <p>Nome: {{ nome }}</p>
+    </div>
+
+    <script type="text/javascript">
+      const newVueApp = {
+        data() {
+          return {
+            nome: "Plínio",
+          };
+        },
+      };
+
+      Vue.createApp(newVueApp).mount("#app");
+    </script>
+  </body>
+</html>
