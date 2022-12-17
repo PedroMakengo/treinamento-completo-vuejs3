@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuejs - Guia Completo</title>
+
+    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
+
+    <style>
+      #app div {
+        display: inline-block;
+        margin-right: 10px;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        style="width: 200px; height: 200px"
+        :style="{ 'background-color': cor, 'height': tamanho + 'px' }"
+      ></div>
+      <div :style="estilosCss"></div>
+      <div
+        :style="[estilosCss, {border: '2px solid black', 'background-color': 'blue'}]"
+      ></div>
+
+      <div :style="{display: ['-webkit-box', '-ms-flexbox', 'flexbox']}"></div>
+
+      <br /><br />
+      <input v-model="cor" placeholder="Cor" /> <br />
+      <input v-model.number="tamanho" placeholder="Tamanho em px" />
+    </div>
+
+    <script type="text/javascript">
+      const newVueApp = {
+        data() {
+          return {
+            cor: "",
+            tamanho: 200,
+          };
+        },
+        computed: {
+          estilosCss() {
+            return {
+              backgroundColor: this.cor,
+              height: this.tamanho + 10 + "px",
+              width: "100px",
+            };
+          },
+        },
+      };
+
+      Vue.createApp(newVueApp).mount("#app");
+    </script>
+  </body>
+</html>
