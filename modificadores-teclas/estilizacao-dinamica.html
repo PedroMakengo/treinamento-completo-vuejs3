@@ -21,6 +21,15 @@
       .coral {
         background-color: lightcoral;
       }
+      .verde {
+        background-color: lightgreen;
+      }
+      .azul {
+        background-color: lightblue;
+      }
+      .circulo {
+        border-radius: 100%;
+      }
     </style>
   </head>
   <body>
@@ -30,6 +39,8 @@
         :class="{ coral: aplicarClasse }"
         @click="aplicarClasse = !aplicarClasse"
       ></div>
+      <div class="caixa" :class="nomeDaClasse"></div>
+      <input v-model="nomeDaClasse" placeholder="Nome da Classe Css" />
     </div>
 
     <script type="text/javascript">
@@ -37,6 +48,7 @@
         data() {
           return {
             aplicarClasse: false,
+            nomeDaClasse: "",
           };
         },
       };
