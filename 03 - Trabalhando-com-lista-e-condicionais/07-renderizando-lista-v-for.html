@@ -12,7 +12,9 @@
     <div id="app">
       <h1>Produtos</h1>
       <ul>
-        <li v-for="(produto, index) in produtos" :key="index">{{produto}}</li>
+        <li v-for="(produto, index) in produtos" :key="index">
+          {{text}}: {{produto}}
+        </li>
       </ul>
     </div>
 
@@ -20,6 +22,7 @@
       const newVueApp = {
         data() {
           return {
+            text: "Produto",
             produtos: ["Monitor", "Teclado", "Mouse"],
           };
         },
