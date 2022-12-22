@@ -14,7 +14,8 @@
     </style>
   </head>
   <body>
-    <div id="app">
+    <div id="app1">
+      <h2>Instância 1</h2>
       <h3 v-if="mostrarMensagem">Título alterado!</h3>
       <p>Título: {{titulo}}</p>
       <p>Título lower case: {{tituloLowerCase}}</p>
@@ -22,8 +23,13 @@
       <button @click="alterarTitulo">Alterar Titulo</button>
     </div>
 
+    <div id="app2">
+      <h2>Instância 2</h2>
+      <p>Titulo {{titulo}}</p>
+    </div>
+
     <script type="text/javascript">
-      const newVueApp = {
+      const newVueApp1 = {
         data() {
           return {
             titulo: "Instância Vue",
@@ -33,8 +39,12 @@
         },
         methods: {
           alterarTitulo() {
-            this.titulo = this.novoTitulo;
-            this.novoTitulo = "";
+            if (this.novoTitulo !== "") {
+              this.titulo = this.novoTitulo;
+              this.novoTitulo = "";
+            } else {
+              alert("Precisas preencher o input");
+            }
           },
         },
         computed: {
@@ -61,7 +71,16 @@
         },
       };
 
-      Vue.createApp(newVueApp).mount("#app");
+      Vue.createApp(newVueApp1).mount("#app1");
+
+      const newVueApp2 = {
+        data() {
+          return {
+            titulo: "Vue Instancia 2",
+          };
+        },
+      };
+      Vue.createApp(newVueApp2).mount("#app2");
     </script>
   </body>
 </html>

@@ -14,7 +14,8 @@
     </style>
   </head>
   <body>
-    <div id="app">
+    <div id="app1">
+      <h2>Instância 1</h2>
       <h3 v-if="mostrarMensagem">Título alterado!</h3>
       <p>Título: {{titulo}}</p>
       <p>Título lower case: {{tituloLowerCase}}</p>
@@ -22,8 +23,14 @@
       <button @click="alterarTitulo">Alterar Titulo</button>
     </div>
 
+    <div id="app2">
+      <h2>Instância 2</h2>
+      <p>Titulo {{titulo}}</p>
+      <button @click="alterarTitulo">Alterar título</button>
+    </div>
+
     <script type="text/javascript">
-      const newVueApp = {
+      var newVueApp1 = {
         data() {
           return {
             titulo: "Instância Vue",
@@ -61,7 +68,22 @@
         },
       };
 
-      Vue.createApp(newVueApp).mount("#app");
+      Vue.createApp(newVueApp1).mount("#app1");
+
+      var newVueApp2 = {
+        data() {
+          return {
+            titulo: "Vue Instancia 2",
+          };
+        },
+        methods: {
+          alterarTitulo(event) {
+            newVueApp1.titulo = "Curso de VueJS 1";
+            console.log(newVueApp1.titulo);
+          },
+        },
+      };
+      Vue.createApp(newVueApp2).mount("#app2");
     </script>
   </body>
 </html>
