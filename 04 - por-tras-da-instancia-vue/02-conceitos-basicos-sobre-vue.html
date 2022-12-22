@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS - Guia Completo</title>
+
+    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Objetos:</h1>
+      <ul>
+        <li v-for="(value, key) in produto">{{key}} : {{value}}</li>
+      </ul>
+      <button @click="adicionarPropriedade">Adicionar propriedade</button>
+      <button @click="substituirPropriedade">Substituir propriedade</button>
+    </div>
+
+    <script type="text/javascript">
+      const newVueApp = {
+        data() {
+          return {};
+        },
+      };
+
+      Vue.createApp(newVueApp).mount("#app");
+    </script>
+  </body>
+</html>
