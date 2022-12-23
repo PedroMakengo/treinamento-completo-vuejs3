@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS - Guia Completo</title>
+
+    <script type="text/javascript" src="https://unpkg.com/vue@next"></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{curso}}</h2>
+      <button @click="alterarTitulo">Alterar titulo</button>
+      <button @click="destruirInstancia">Destruir instância</button>
+    </div>
+
+    <script type="text/javascript">
+      var newVueApp = {
+        data() {
+          return {
+            curso: "Curso de VueJS",
+          };
+        },
+        methods: {
+          alterarTitulo() {
+            this.curso = "Curso de VueJS - Guia Completo";
+          },
+          destruirInstancia(event) {
+            this.$destroy();
+          },
+        },
+        beforeCreate() {
+          console.log("01- beforeCreate()");
+        },
+        created() {
+          console.log("02- created()");
+        },
+        beforeMount() {
+          console.log("03- beforeMount()");
+        },
+        mounted() {
+          console.log("04- mounted()");
+        },
+        beforeUpdate() {
+          console.log("05- beforeUpdate()");
+        },
+        updated() {
+          setTimeout(() => {
+            console.log("06- updated()");
+          }, 3000);
+        },
+        beforeDestroy() {
+          console.log("07- beforeDestroy()");
+        },
+        destroyed() {
+          console.log("08- destroyed()");
+        },
+      };
+
+      Vue.createApp(newVueApp).mount("#app");
+    </script>
+  </body>
+</html>
