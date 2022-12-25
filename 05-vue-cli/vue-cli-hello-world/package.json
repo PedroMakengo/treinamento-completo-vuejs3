@@ -41,9 +41,7 @@
       "parser": "@babel/eslint-parser",
       "requireConfigFile": false
     },
-    "rules": {
-      "singleQuote": true
-    }
+    "rules": {}
   },
   "browserslist": [
     "> 1%",

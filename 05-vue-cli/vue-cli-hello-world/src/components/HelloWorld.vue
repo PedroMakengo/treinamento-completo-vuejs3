@@ -14,7 +14,7 @@
         <h1
           class="display-2 font-weight-bold mb-3"
         >
-          Welcome to the Vuetify 3 Beta
+          Welcome to the Vuetify 3 Beta {{ url }}
         </h1>
 
         <p class="subheading font-weight-regular">
@@ -97,6 +97,7 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
+    url: process.env.VUE_APP_URL,
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -147,6 +148,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-$cor: green;
-</style>
+<style lang="scss"></style>
