@@ -146,3 +146,7 @@ export default {
   }),
 }
 </script>
+
+<style lang="scss">
+$cor: green;
+</style>
