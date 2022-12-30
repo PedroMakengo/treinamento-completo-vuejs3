@@ -5,9 +5,15 @@
       <h2>Filmes</h2>
 
       <div class="list-group list-group-flush">
-        <FilmesListaIten />
-        <FilmesListaIten />
-        <FilmesListaIten />
+        <FilmesListaIten
+          filmeTitulo="Vingadores: Guerra Infinita"
+        />
+        <FilmesListaIten
+          filmeTitulo="Home Formiga e a Vespa"
+        />
+        <FilmesListaIten
+          filmeTitulo="Pantera Negra"
+        />
       </div>
     </div>
 
