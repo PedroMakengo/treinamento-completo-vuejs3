@@ -1,23 +1,26 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld />
-    </v-main>
-  </v-app>
+  <div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Lista de Filmes</h1>
+        <p class="lead">
+          Treinando comunicação entre Componentes
+          no Vue
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <FilmesLista />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import FilmesLista from '@/components/FilmesLista.vue'
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+  components: { FilmesLista },
+  data: () => ({}),
 }
 </script>
