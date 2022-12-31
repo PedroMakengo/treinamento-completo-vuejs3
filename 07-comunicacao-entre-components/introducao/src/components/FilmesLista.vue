@@ -5,10 +5,14 @@
       <h2>Filmes</h2>
 
       <ul class="list-group list-group-flush">
-        <FilmesListaIten
+        <!-- <FilmesListaIten
           v-for="(filme, index) in filmes"
           :filmeTitulo="filme"
           :key="index"
+        /> -->
+
+        <FilmesListaIten
+          filmeTitulo="Marvel Demolidor"
         />
       </ul>
     </div>
