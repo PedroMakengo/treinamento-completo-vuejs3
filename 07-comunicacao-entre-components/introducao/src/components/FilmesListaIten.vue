@@ -1,8 +1,7 @@
 <template>
   <li class="list-group-item">
     <span
-      >{{ filmeTituloConcatenado }} |
-      {{ ano }}</span
+      >{{ filme.titulo }} | {{ filme.ano }}</span
     >
     <button class="btn btn-secondary float-right">
       Selecionar
@@ -16,24 +15,22 @@
 //   return filmeTitulo.includes('Marvel')
 // },
 
+// computed: {
+//   filmeTituloConcatenado() {
+//     return `Título: ${this.filme.titulo}`
+//   },
+// },
+// created() {
+//   console.log('Attrs', this.$attrs)
+// },
+
 export default {
+  inheritAttrs: false,
   props: {
-    titulo: {
-      type: String,
+    filme: {
+      type: Object,
       required: true,
     },
-    ano: {
-      type: Number,
-      required: true,
-    },
-  },
-  computed: {
-    filmeTituloConcatenado() {
-      return `Título: ${this.titulo}`
-    },
-  },
-  created() {
-    console.log(typeof this.titulo)
   },
 }
 </script>
