@@ -14,7 +14,6 @@
 
 <script>
 export default {
-  inheritAttrs: false,
   props: {
     filme: {
       type: Object,
@@ -29,6 +28,7 @@ export default {
     },
   },
 }
+// inheritAttrs: false,
 
 // default: 'Vingadores',
 // validator(filmeTitulo) {
