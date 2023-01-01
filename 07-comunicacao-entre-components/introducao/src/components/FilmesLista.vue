@@ -9,6 +9,9 @@
           v-for="filme in filmes"
           :key="filme.id"
           :filme="filme"
+          @selecionarFilme="
+            filmeSelecionado = $event
+          "
         />
       </ul>
     </div>
@@ -57,6 +60,7 @@ export default {
           diretor: 'Stan Lee',
         },
       ],
+      filmeSelecionado: undefined,
     }
   },
 }

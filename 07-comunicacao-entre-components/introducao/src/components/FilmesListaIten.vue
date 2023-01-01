@@ -3,13 +3,33 @@
     <span
       >{{ filme.titulo }} | {{ filme.ano }}</span
     >
-    <button class="btn btn-secondary float-right">
+    <button
+      @click="selecionar"
+      class="btn btn-secondary float-right"
+    >
       Selecionar
     </button>
   </li>
 </template>
 
 <script>
+export default {
+  inheritAttrs: false,
+  props: {
+    filme: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  methods: {
+    selecionar(event) {
+      this.$emit('selecionarFilme', this.filme)
+      console.log(event)
+    },
+  },
+}
+
 // default: 'Vingadores',
 // validator(filmeTitulo) {
 //   return filmeTitulo.includes('Marvel')
@@ -23,14 +43,4 @@
 // created() {
 //   console.log('Attrs', this.$attrs)
 // },
-
-export default {
-  inheritAttrs: false,
-  props: {
-    filme: {
-      type: Object,
-      required: true,
-    },
-  },
-}
 </script>
