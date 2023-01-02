@@ -23,8 +23,12 @@ export default {
 
   methods: {
     selecionar(event) {
-      this.$emit('selecionarFilme', this.filme)
+      // this.$emit('selecionarFilme', this.filme)
       console.log(event)
+      this.emitter.emit(
+        'selecionarFilme',
+        this.filme
+      )
     },
   },
 }

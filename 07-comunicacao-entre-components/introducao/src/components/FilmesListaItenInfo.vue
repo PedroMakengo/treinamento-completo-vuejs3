@@ -2,10 +2,10 @@
   <div>
     <h2>Filme selecionado</h2>
 
-    <div class="card">
+    <div class="card" v-if="filme">
       <div class="card-body">
         <h5 class="card-title">
-          Vingadores: Guerra Infinita
+          {{ filme.titulo }} | {{ filme.ano }}
         </h5>
         <button
           class="btn btn-danger float-right"
@@ -14,5 +14,24 @@
         </button>
       </div>
     </div>
+    <p v-else>Nenhum filme selecionado</p>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      filme: undefined,
+    }
+  },
+  created() {
+    this.emitter.on(
+      'selecionarFilme',
+      (filmeSelecionado) => {
+        this.filme = filmeSelecionado
+      }
+    )
+  },
+}
+</script>
