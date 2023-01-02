@@ -8,6 +8,7 @@
           {{ filme.titulo }} | {{ filme.ano }}
         </h5>
         <button
+          @click="editar"
           class="btn btn-danger float-right"
         >
           Editar
@@ -32,6 +33,12 @@ export default {
         this.filme = filmeSelecionado
       }
     )
+  },
+  methods: {
+    editar(event) {
+      this.$emit('editarFilme', this.filme)
+      console.log(event)
+    },
   },
 }
 </script>
