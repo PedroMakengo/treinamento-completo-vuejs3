@@ -8,7 +8,13 @@
         type="text"
         class="form-control"
         placeholder="Insira o título"
-        :value="filme.titulo"
+        :value="filmeSelecionado.titulo"
+        @input="
+          filmeSelecionado = {
+            propriedade: 'titulo',
+            valor: $event.target.value,
+          }
+        "
       />
     </div>
     <div class="form-group">
@@ -17,9 +23,22 @@
         type="text"
         class="form-control"
         placeholder="Insira o título"
-        :value="filme.ano"
+        :value="filmeSelecionado.ano"
+        @input="
+          filmeSelecionado = {
+            propriedade: 'ano',
+            valor: $event.target.value,
+          }
+        "
       />
     </div>
+
+    <button
+      @click="salvarFilme"
+      class="btn btn-primary float-right"
+    >
+      Salvar
+    </button>
   </div>
 </template>
 
@@ -29,6 +48,36 @@ export default {
     filme: {
       type: Object,
       required: true,
+    },
+    filmeTitulo: String,
+  },
+  data() {
+    return {
+      filmeLocal: this.filme,
+    }
+  },
+  computed: {
+    filmeSelecionado: {
+      set(dados) {
+        this.filmeLocal = Object.assign(
+          {},
+          this.filmeLocal,
+          { [dados.propriedade]: dados.valor }
+        )
+      },
+      get() {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        return (this.filmeLocal = this.filme)
+      },
+    },
+  },
+
+  methods: {
+    salvarFilme() {
+      this.emitter.emit(
+        'atualizarFilme',
+        this.filmeLocal
+      )
     },
   },
 }

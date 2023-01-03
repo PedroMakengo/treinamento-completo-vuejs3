@@ -88,6 +88,31 @@ export default {
       this.editar = true
       this.filmeSelecionado = filme
     },
+    atualizarFilme(filmeAtualizado) {
+      const indece = this.filmes.findIndex(
+        (filme) => filme.id === filmeAtualizado.id
+      )
+      this.filmes.splice(
+        indece,
+        1,
+        filmeAtualizado
+      )
+      this.filmeSelecionado = undefined
+      this.editar = false
+    },
+  },
+  created() {
+    this.emitter.on(
+      'selecionarFilme',
+      (filmeSelecionado) => {
+        this.filmeSelecionado = filmeSelecionado
+      }
+    )
+
+    this.emitter.on(
+      'atualizarFilme',
+      this.atualizarFilme
+    )
   },
 }
 </script>
