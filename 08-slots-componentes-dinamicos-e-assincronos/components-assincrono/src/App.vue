@@ -9,15 +9,10 @@
         </p>
       </div>
     </div>
-
-    <div class="container">
-      <FilmesLista />
-    </div>
   </div>
 </template>
 
 <script>
-import FilmesLista from '@/components/FilmesLista.vue'
 export default {
   name: 'App',
   components: { FilmesLista },
