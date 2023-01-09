@@ -1,17 +1,17 @@
 <template>
   <div class="post">
-    <div class="post-cabecalho">
-      <slot name="cabecalho"></slot>
-    </div>
-    <div class="post-conteudo">
-      <slot></slot>
-    </div>
-    <div class="post-rodape">
-      <slot name="rodape"></slot>
-      <a href="#" class="link">
-        <slot name="botao">Ler mais...</slot>
-      </a>
-    </div>
+    <slot>
+      <div class="post-cabecalho">
+        <h2>{{ post.titulo }}</h2>
+      </div>
+      <div class="post-conteudo">
+        <p>{{ post.conteudo }}</p>
+      </div>
+      <div class="post-rodape">
+        <small>{{ post.conteudo }}</small>
+        <a href="#" class="link">Ler mais...</a>
+      </div>
+    </slot>
   </div>
 </template>
 
@@ -19,7 +19,10 @@
 export default {
   name: 'PostComponent',
   props: {
-    titulo: String,
+    post: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>
