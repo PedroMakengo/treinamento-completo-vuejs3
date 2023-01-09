@@ -1,20 +1,16 @@
 <template>
-  <div>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Lista de Filmes</h1>
-        <p class="lead">
-          Treinando comunicação entre Componentes
-          no Vue
-        </p>
-      </div>
-    </div>
+  <div id="app">
+    <h1>Vue JS</h1>
+
+    <Post titulo="Components no Vue" />
+    <Post titulo="Passando dados via props" />
   </div>
 </template>
 
 <script>
+import Post from '@/components/Post.vue'
 export default {
   name: 'App',
-  data: () => ({}),
+  components: { Post },
 }
 </script>
