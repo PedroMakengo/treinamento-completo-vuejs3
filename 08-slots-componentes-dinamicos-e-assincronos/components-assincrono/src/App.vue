@@ -7,15 +7,14 @@
       <template v-slot:cabecalho>
         <h2>Components no Vue</h2>
       </template>
-      <template v-slot:conteudo>
-        <p>
-          Components são uma das peças mais
-          importante no Vue
-        </p>
-        <span>...</span>
-      </template>
+      <p class="post-paragrafo">
+        Components são uma das peças mais
+        importante no Vue
+      </p>
+      <span>...</span>
+
       <template v-slot:rodape>
-        <small>por Pedro Makengo</small>
+        <small>por {{ autor }}</small>
       </template>
     </Post>
   </div>
@@ -26,6 +25,11 @@ import Post from '@/components/Post.vue'
 export default {
   name: 'App',
   components: { Post },
+  data() {
+    return {
+      autor: 'PedroMakengo',
+    }
+  },
 }
 </script>
 
@@ -34,4 +38,8 @@ export default {
   width: 70%;
   margin: 30px auto;
 }
+
+/* .post-paragrafo {
+  color: red;
+} */
 </style>

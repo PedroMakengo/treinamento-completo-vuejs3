@@ -4,10 +4,13 @@
       <slot name="cabecalho"></slot>
     </div>
     <div class="post-conteudo">
-      <slot name="conteudo"></slot>
+      <slot></slot>
     </div>
     <div class="post-rodape">
       <slot name="rodape"></slot>
+      <a href="#" class="link">
+        <slot name="botao">Ler mais...</slot>
+      </a>
     </div>
   </div>
 </template>
@@ -37,5 +40,13 @@ export default {
 
 .post-rodape {
   font-style: italic;
+}
+
+.link {
+  display: flex;
+  justify-content: flex-end;
+}
+.post-paragrafo {
+  color: green;
 }
 </style>
