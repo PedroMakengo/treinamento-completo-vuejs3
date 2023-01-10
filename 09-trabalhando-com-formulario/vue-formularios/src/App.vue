@@ -62,6 +62,7 @@
                   type="radio"
                   class="form-check-input"
                   value="Masculino"
+                  v-model="desenvolvedor.genero"
                 />
                 <label class="form-check-label"
                   >Masculino</label
@@ -75,6 +76,7 @@
                   type="radio"
                   class="form-check-input"
                   value="Feminino"
+                  v-model="desenvolvedor.genero"
                 />
                 <label class="form-check-label"
                   >Feminino</label
@@ -155,6 +157,7 @@
               <textarea
                 class="form-control"
                 placeholder="Conte-nos um pouco sobre você..."
+                v-model="desenvolvedor.biografia"
               ></textarea>
             </div>
 
@@ -215,6 +218,9 @@
               </li>
               <li class="list-group-item">
                 <strong>Biografia:</strong>
+                <div style="white-space: pre">
+                  {{ desenvolvedor.biografia }}
+                </div>
               </li>
               <li class="list-group-item">
                 <strong
@@ -243,6 +249,8 @@ export default {
         nome: '',
         email: '',
         idade: 23,
+        biografia: 'Sou desenvolvedor desde 2016',
+        genero: 'Masculino',
       },
     }
   },
