@@ -1,43 +1,31 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
   <div id="app" class="container">
-    <h1>Components Dinâmicos</h1>
+    <h1>Forma padrão</h1>
 
-    <button
-      @click="componentSelecionado = 'Home'"
-    >
-      Home
-    </button>
-    <button
-      @click="componentSelecionado = 'PostsLista'"
-    >
-      Posts
-    </button>
-    <button
-      @click="componentSelecionado = 'Sobre'"
-    >
-      Sobre
-    </button>
+    <PostsLista :posts="posts" />
 
-    <component
-      :is="componentSelecionado"
-      v-bind="propsAtuais"
-    ></component>
+    <hr />
 
-    <!-- Passar objetos inteiros usando a directiva v-bind -->
+    <h1>Slots com escopo</h1>
+
+    <PostsLista :posts="posts">
+      <template v-slot="{ meuPost }">
+        <h2>{{ meuPost.titulo }}</h2>
+        <p>{{ meuPost.conteudo }}</p>
+        <small>{{ meuPost.autor }}</small>
+      </template>
+    </PostsLista>
   </div>
 </template>
 
 <script>
 import PostsLista from '@/components/PostsLista.vue'
-import Home from '@/components/Home.vue'
-import Sobre from '@/components/Sobre.vue'
 export default {
   name: 'App',
-  components: { PostsLista, Home, Sobre },
+  components: { PostsLista },
   data() {
     return {
-      componentSelecionado: 'Home',
       posts: [
         {
           id: 1,
@@ -56,14 +44,6 @@ export default {
         },
       ],
     }
-  },
-  computed: {
-    propsAtuais() {
-      return this.componentSelecionado ===
-        'PostsLista'
-        ? { posts: this.posts }
-        : {}
-    },
   },
 }
 </script>
