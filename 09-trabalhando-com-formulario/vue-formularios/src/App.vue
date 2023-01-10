@@ -1,86 +1,232 @@
-<!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
-  <div id="app" class="container">
-    <h1>Components Dinâmicos</h1>
+  <div id="app">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">
+          Formulários no Vue
+        </h1>
+        <p class="lead">
+          Treinando a manipulação de formulários
+        </p>
+      </div>
+    </div>
 
-    <button
-      @click="componentSelecionado = 'Home'"
-    >
-      Home
-    </button>
-    <button
-      @click="componentSelecionado = 'PostsLista'"
-    >
-      Posts
-    </button>
-    <button
-      @click="componentSelecionado = 'Sobre'"
-    >
-      Sobre
-    </button>
+    <div class="container">
+      <div class="row">
+        <!-- formulario -->
+        <div class="col-sm-6">
+          <h3>Preencha abaixo</h3>
 
-    <keep-alive include="Sobre">
-      <component
-        :is="componentSelecionado"
-        v-bind="propsAtuais"
-      ></component>
-    </keep-alive>
+          <form>
+            <div class="form-group">
+              <label>Nome:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Seu nome"
+              />
+            </div>
 
-    <!-- Passar objetos inteiros usando a directiva v-bind -->
+            <div class="form-group">
+              <label>Endereço de email:</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Seu email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Idade:</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Sua idade"
+              />
+            </div>
+
+            <div class="form-group">
+              <p>Gênero:</p>
+
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="Masculino"
+                />
+                <label class="form-check-label"
+                  >Masculino</label
+                >
+              </div>
+
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="Feminino"
+                />
+                <label class="form-check-label"
+                  >Feminino</label
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Ocupação:</label>
+              <select
+                class="form-control"
+                placeholder="Seu email"
+              >
+                <option>
+                  Selecione uma opção...
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <p>Tecnologias:</p>
+
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="JavaScript"
+                />
+                <label class="form-check-label"
+                  >JavaScript</label
+                >
+              </div>
+
+              <div
+                class="form-check form-check-inline"
+                value="Vue JS"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                />
+                <label class="form-check-label"
+                  >Vue JS</label
+                >
+              </div>
+
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Vuex"
+                />
+                <label class="form-check-label"
+                  >Vuex</label
+                >
+              </div>
+
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Vue Router"
+                />
+                <label class="form-check-label"
+                  >Vue Router</label
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Resumo de perfil:</label>
+              <textarea
+                class="form-control"
+                placeholder="Conte-nos um pouco sobre você..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <div
+                class="form-check form-check-inline"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                />
+                <label class="form-check-label"
+                  >Receber notificações por
+                  email</label
+                >
+              </div>
+            </div>
+
+            <button class="btn btn-secondary">
+              Resetar
+            </button>
+            <button class="btn btn-success">
+              Enviar
+            </button>
+          </form>
+        </div>
+
+        <!-- saida -->
+        <div class="col-sm-6">
+          <h3>Saída</h3>
+
+          <div class="card">
+            <div class="card-header">Dados</div>
+
+            <ul
+              class="list-group list-group-flush"
+            >
+              <li class="list-group-item">
+                <strong>Nome:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Email:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Idade:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Gênero:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Ocupação:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Tecnologias:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong>Biografia:</strong>
+              </li>
+              <li class="list-group-item">
+                <strong
+                  >Receber notificações?</strong
+                >
+              </li>
+            </ul>
+
+            <div class="card-header">Model</div>
+
+            <div class="card-body">
+              <pre><code>{{ {'nome': 'Plínio Naves'} }}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-import PostsLista from '@/components/PostsLista.vue'
-import Home from '@/components/Home.vue'
-import Sobre from '@/components/Sobre.vue'
-export default {
-  name: 'App',
-  components: {
-    PostsLista,
-    Home,
-    Sobre,
-  },
-  data() {
-    return {
-      componentSelecionado: 'Home',
-      posts: [
-        {
-          id: 1,
-          titulo: 'Components no Vue',
-          conteudo:
-            'Components são uma das peças mais importante no Vue',
-          autor: 'Pedro Makengo',
-        },
-        {
-          id: 2,
-          titulo:
-            'Distribuindo conteúdo com slots',
-          conteudo:
-            'Slots podem ser usados como repositórios de código HTML',
-          autor: 'Pedro Makengo',
-        },
-      ],
-    }
-  },
-  computed: {
-    propsAtuais() {
-      return this.componentSelecionado ===
-        'PostsLista'
-        ? { posts: this.posts }
-        : {}
-    },
-  },
-}
-</script>
-
 <style scoped>
-.container {
-  width: 70%;
-  margin: 30px auto;
+.btn {
+  margin-right: 5px;
 }
-
-/* .post-paragrafo {
-  color: red;
-} */
 </style>
