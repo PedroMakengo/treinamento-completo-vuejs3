@@ -4,6 +4,7 @@ const {
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  runtimeCompiler: true,
 
   pluginOptions: {
     vuetify: {

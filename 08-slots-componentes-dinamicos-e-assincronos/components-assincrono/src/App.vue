@@ -36,7 +36,11 @@ import Home from '@/components/Home.vue'
 import Sobre from '@/components/Sobre.vue'
 export default {
   name: 'App',
-  components: { PostsLista, Home, Sobre },
+  components: {
+    PostsLista,
+    Home,
+    Sobre,
+  },
   data() {
     return {
       componentSelecionado: 'Home',
