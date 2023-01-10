@@ -19,10 +19,12 @@
       Sobre
     </button>
 
-    <component
-      :is="componentSelecionado"
-      v-bind="propsAtuais"
-    ></component>
+    <keep-alive>
+      <component
+        :is="componentSelecionado"
+        v-bind="propsAtuais"
+      ></component>
+    </keep-alive>
 
     <!-- Passar objetos inteiros usando a directiva v-bind -->
   </div>
