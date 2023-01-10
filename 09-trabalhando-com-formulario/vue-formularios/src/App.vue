@@ -24,6 +24,9 @@
                 type="text"
                 class="form-control"
                 placeholder="Seu nome"
+                v-model.lazy.trim="
+                  desenvolvedor.nome
+                "
               />
             </div>
 
@@ -33,6 +36,7 @@
                 type="email"
                 class="form-control"
                 placeholder="Seu email"
+                v-model.lazy="desenvolvedor.email"
               />
             </div>
 
@@ -42,6 +46,9 @@
                 type="number"
                 class="form-control"
                 placeholder="Sua idade"
+                v-model.number="
+                  desenvolvedor.idade
+                "
               />
             </div>
 
@@ -187,12 +194,15 @@
             >
               <li class="list-group-item">
                 <strong>Nome:</strong>
+                {{ desenvolvedor.nome }}
               </li>
               <li class="list-group-item">
                 <strong>Email:</strong>
+                {{ desenvolvedor.email }}
               </li>
               <li class="list-group-item">
                 <strong>Idade:</strong>
+                {{ desenvolvedor.idade }}
               </li>
               <li class="list-group-item">
                 <strong>Gênero:</strong>
@@ -216,7 +226,7 @@
             <div class="card-header">Model</div>
 
             <div class="card-body">
-              <pre><code>{{ {'nome': 'Plínio Naves'} }}</code></pre>
+              <pre><code>{{ desenvolvedor }}</code></pre>
             </div>
           </div>
         </div>
@@ -224,6 +234,20 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      desenvolvedor: {
+        nome: '',
+        email: '',
+        idade: 23,
+      },
+    }
+  },
+}
+</script>
 
 <style scoped>
 .btn {
