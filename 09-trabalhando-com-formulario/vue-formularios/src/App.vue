@@ -168,6 +168,9 @@
                 <input
                   type="checkbox"
                   class="form-check-input"
+                  v-model="
+                    desenvolvedor.notificacoes
+                  "
                 />
                 <label class="form-check-label"
                   >Receber notificações por
@@ -209,6 +212,7 @@
               </li>
               <li class="list-group-item">
                 <strong>Gênero:</strong>
+                {{ desenvolvedor.genero }}
               </li>
               <li class="list-group-item">
                 <strong>Ocupação:</strong>
@@ -226,6 +230,12 @@
                 <strong
                   >Receber notificações?</strong
                 >
+                {{
+                  desenvolvedor.notificacoes ===
+                  true
+                    ? 'Sim'
+                    : 'Não'
+                }}
               </li>
             </ul>
 
@@ -251,6 +261,7 @@ export default {
         idade: 23,
         biografia: 'Sou desenvolvedor desde 2016',
         genero: 'Masculino',
+        notificacoes: false,
       },
     }
   },
