@@ -19,7 +19,7 @@
       Sobre
     </button>
 
-    <keep-alive>
+    <keep-alive include="Sobre">
       <component
         :is="componentSelecionado"
         v-bind="propsAtuais"

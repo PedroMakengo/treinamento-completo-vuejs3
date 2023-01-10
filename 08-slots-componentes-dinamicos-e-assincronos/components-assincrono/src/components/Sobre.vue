@@ -22,5 +22,11 @@ export default {
   unmounted() {
     console.log('Destroy')
   },
+  activated() {
+    console.log('Activated')
+  },
+  deactivated() {
+    console.log('Deactivated')
+  },
 }
 </script>
