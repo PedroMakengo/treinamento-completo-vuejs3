@@ -171,6 +171,8 @@
                   v-model="
                     desenvolvedor.notificacoes
                   "
+                  true-value="Sim"
+                  false-value="Não"
                 />
                 <label class="form-check-label"
                   >Receber notificações por
@@ -230,12 +232,7 @@
                 <strong
                   >Receber notificações?</strong
                 >
-                {{
-                  desenvolvedor.notificacoes ===
-                  true
-                    ? 'Sim'
-                    : 'Não'
-                }}
+                {{ desenvolvedor.notificacoes }}
               </li>
             </ul>
 
@@ -261,7 +258,7 @@ export default {
         idade: 23,
         biografia: 'Sou desenvolvedor desde 2016',
         genero: 'Masculino',
-        notificacoes: false,
+        notificacoes: 'Não',
       },
     }
   },
