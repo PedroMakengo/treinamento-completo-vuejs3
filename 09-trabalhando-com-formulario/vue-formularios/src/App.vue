@@ -17,7 +17,10 @@
         <div class="col-sm-6">
           <h3>Preencha abaixo</h3>
 
-          <form @submit.prevent="enviar">
+          <form
+            @submit.prevent="enviar"
+            @reset="resetar"
+          >
             <div class="form-group">
               <label>Nome:</label>
               <input
@@ -183,6 +186,23 @@
             </div>
 
             <div class="form-group">
+              <!-- <AppRange
+                label="Salário pretendido"
+                v-model="desenvolvedor.salario"
+              /> -->
+              <label>Resumo de perfil:</label>
+              <input
+                type="range"
+                v-model.number="
+                  desenvolvedor.salario
+                "
+                min="10"
+                max="200"
+                class="form-control-range"
+              />
+            </div>
+
+            <div class="form-group">
               <div
                 class="form-check form-check-inline"
               >
@@ -295,10 +315,13 @@
 </template>
 
 <script>
+// import AppRange from '@/components/Range.vue'
+
 export default {
   data() {
     return {
-      desenvolvedor: {
+      desenvolvedor: {},
+      valoresPadroes: {
         nome: '',
         email: '',
         idade: 23,
@@ -307,6 +330,7 @@ export default {
         tecnologias: [],
         notificacoes: 'Não',
         ocupacao: '',
+        salario: 100,
       },
       ocupacoes: [
         'Desenvolvedor Front End (Web)',
@@ -317,6 +341,7 @@ export default {
       ],
     }
   },
+  // components: { AppRange },
   methods: {
     enviar() {
       const formularioEnviado = Object.assign(
@@ -328,6 +353,15 @@ export default {
         formularioEnviado
       )
     },
+    resetar() {
+      this.desenvolvedor = Object.assign(
+        {},
+        this.valoresPadroes
+      )
+    },
+  },
+  created() {
+    this.resetar()
   },
 }
 </script>
