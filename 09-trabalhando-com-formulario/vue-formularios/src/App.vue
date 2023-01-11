@@ -88,10 +88,19 @@
               <label>Ocupação:</label>
               <select
                 class="form-control"
-                placeholder="Seu email"
+                v-model="desenvolvedor.ocupacao"
               >
-                <option>
+                <option value="" disabled>
                   Selecione uma opção...
+                </option>
+                <option
+                  v-for="(
+                    ocupacao, index
+                  ) in ocupacoes"
+                  :key="index"
+                  :value="ocupacao"
+                >
+                  {{ ocupacao }}
                 </option>
               </select>
             </div>
@@ -106,6 +115,9 @@
                   type="checkbox"
                   class="form-check-input"
                   value="JavaScript"
+                  v-model="
+                    desenvolvedor.tecnologias
+                  "
                 />
                 <label class="form-check-label"
                   >JavaScript</label
@@ -114,11 +126,14 @@
 
               <div
                 class="form-check form-check-inline"
-                value="Vue JS"
               >
                 <input
                   type="checkbox"
                   class="form-check-input"
+                  value="Vue JS"
+                  v-model="
+                    desenvolvedor.tecnologias
+                  "
                 />
                 <label class="form-check-label"
                   >Vue JS</label
@@ -132,6 +147,9 @@
                   type="checkbox"
                   class="form-check-input"
                   value="Vuex"
+                  v-model="
+                    desenvolvedor.tecnologias
+                  "
                 />
                 <label class="form-check-label"
                   >Vuex</label
@@ -145,6 +163,9 @@
                   type="checkbox"
                   class="form-check-input"
                   value="Vue Router"
+                  v-model="
+                    desenvolvedor.tecnologias
+                  "
                 />
                 <label class="form-check-label"
                   >Vue Router</label
@@ -218,9 +239,20 @@
               </li>
               <li class="list-group-item">
                 <strong>Ocupação:</strong>
+                {{ desenvolvedor.ocupacao }}
               </li>
               <li class="list-group-item">
                 <strong>Tecnologias:</strong>
+                <ul>
+                  <li
+                    v-for="(
+                      tecnologia, index
+                    ) in desenvolvedor.tecnologias"
+                    :key="index"
+                  >
+                    {{ tecnologia }}
+                  </li>
+                </ul>
               </li>
               <li class="list-group-item">
                 <strong>Biografia:</strong>
@@ -258,8 +290,17 @@ export default {
         idade: 23,
         biografia: 'Sou desenvolvedor desde 2016',
         genero: 'Masculino',
+        tecnologias: [],
         notificacoes: 'Não',
+        ocupacao: '',
       },
+      ocupacoes: [
+        'Desenvolvedor Front End (Web)',
+        'Desenvolvedor Front End (Mobile)',
+        'Desenvolvedor Front End (Web e Mobile)',
+        'Desenvolvedor Back End',
+        'Desenvolvedor Full Stack',
+      ],
     }
   },
 }
