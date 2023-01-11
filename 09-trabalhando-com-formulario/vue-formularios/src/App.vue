@@ -17,7 +17,7 @@
         <div class="col-sm-6">
           <h3>Preencha abaixo</h3>
 
-          <form>
+          <form @submit.prevent="enviar">
             <div class="form-group">
               <label>Nome:</label>
               <input
@@ -202,12 +202,26 @@
               </div>
             </div>
 
-            <button class="btn btn-secondary">
+            <button
+              class="btn btn-secondary"
+              type="reset"
+            >
               Resetar
             </button>
-            <button class="btn btn-success">
+            <button
+              class="btn btn-success"
+              type="submit"
+            >
               Enviar
             </button>
+
+            <!-- <button
+              class="btn btn-success"
+              type="button"
+              @click.prevent="enviar"
+            >
+              Enviar
+            </button> -->
           </form>
         </div>
 
@@ -302,6 +316,18 @@ export default {
         'Desenvolvedor Full Stack',
       ],
     }
+  },
+  methods: {
+    enviar() {
+      const formularioEnviado = Object.assign(
+        {},
+        this.desenvolvedor
+      )
+      console.log(
+        'Formulário enviado',
+        formularioEnviado
+      )
+    },
   },
 }
 </script>
