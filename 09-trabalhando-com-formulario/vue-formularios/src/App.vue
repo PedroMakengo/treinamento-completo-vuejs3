@@ -188,12 +188,13 @@
             <div class="form-group">
               <AppRange
                 label="Salário pretendido"
-                v-model:value="
+                v-model:value.number="
                   desenvolvedor.salario
                 "
-                min="1000"
-                max="1500"
+                min="10000"
+                max="15000"
                 step="500"
+                inputClasses="form-control-range"
               />
             </div>
 
@@ -294,6 +295,12 @@
                   >Receber notificações?</strong
                 >
                 {{ desenvolvedor.notificacoes }}
+              </li>
+              <li class="list-group-item">
+                <strong
+                  >Salário pretendido:</strong
+                >
+                {{ desenvolvedor.salario }}
               </li>
             </ul>
 
