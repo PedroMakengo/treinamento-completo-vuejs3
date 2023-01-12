@@ -186,19 +186,14 @@
             </div>
 
             <div class="form-group">
-              <!-- <AppRange
+              <AppRange
                 label="Salário pretendido"
-                v-model="desenvolvedor.salario"
-              /> -->
-              <label>Resumo de perfil:</label>
-              <input
-                type="range"
-                v-model.number="
+                v-model:value="
                   desenvolvedor.salario
                 "
-                min="10"
-                max="200"
-                class="form-control-range"
+                min="1000"
+                max="1500"
+                step="500"
               />
             </div>
 
@@ -315,7 +310,7 @@
 </template>
 
 <script>
-// import AppRange from '@/components/Range.vue'
+import AppRange from '@/components/Range.vue'
 
 export default {
   data() {
@@ -330,7 +325,7 @@ export default {
         tecnologias: [],
         notificacoes: 'Não',
         ocupacao: '',
-        salario: 100,
+        salario: 1000,
       },
       ocupacoes: [
         'Desenvolvedor Front End (Web)',
@@ -341,7 +336,7 @@ export default {
       ],
     }
   },
-  // components: { AppRange },
+  components: { AppRange },
   methods: {
     enviar() {
       const formularioEnviado = Object.assign(

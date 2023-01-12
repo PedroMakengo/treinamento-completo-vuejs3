@@ -4,10 +4,13 @@
     <input
       type="range"
       :value="value"
-      @input="$emit('input', $event.target.value)"
+      @input="
+        this.$emit(
+          'update:value',
+          $event.target.value
+        )
+      "
     />
-
-    {{ value }}
   </div>
 </template>
 
@@ -17,6 +20,10 @@ export default {
   props: {
     label: String,
     value: [Number, String],
+  },
+
+  created() {
+    console.log(this.value)
   },
 }
 </script>
