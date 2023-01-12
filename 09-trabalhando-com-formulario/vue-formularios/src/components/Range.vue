@@ -15,9 +15,12 @@
 export default {
   name: 'InputRange',
   inheritAttrs: false,
+  model: {
+    prop: 'valor',
+  },
   props: {
     label: String,
-    value: [Number, String],
+    valor: [Number, String],
     inputClasses: [String, Object, Array],
   },
 
