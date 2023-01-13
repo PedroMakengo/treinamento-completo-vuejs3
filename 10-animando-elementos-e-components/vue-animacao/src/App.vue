@@ -18,7 +18,7 @@
         Alternar
       </button>
 
-      <transition>
+      <transition name="zoom">
         <div
           class="alert alert-primary"
           v-if="mostrar"
@@ -41,19 +41,24 @@ export default {
 </script>
 
 <style scoped>
-/* Entrada */
-.v-enter {
-}
-.v-enter-active {
-}
-.v-enter-to {
+.zoom-leave-active,
+.zoom-enter-active {
+  transition: transform 0.5s;
 }
 
-/* Saída */
-.v-leave {
+.zoom-enter-from,
+.zoom-leave-to {
+  transform: scale(0);
 }
-.v-leave-active {
+
+/* Entrada */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
-.v-leave-to {
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
