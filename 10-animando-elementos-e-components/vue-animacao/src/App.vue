@@ -45,14 +45,17 @@ export default {
 
 .slide-enter-active {
   animation: slide 0.7s;
+  transition: opacity 0.7s;
 }
 
 .slide-leave-active {
   animation: slide 0.7s reverse;
+  transition: opacity 0.7s;
 }
 
 .slide-enter-from,
 .slide-leave-to {
+  opacity: 0;
 }
 
 @keyframes slide {
