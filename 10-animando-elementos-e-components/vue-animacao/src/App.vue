@@ -18,7 +18,7 @@
         Alternar
       </button>
 
-      <transition name="zoom">
+      <transition name="slide">
         <div
           class="alert alert-primary"
           v-if="mostrar"
@@ -41,6 +41,30 @@ export default {
 </script>
 
 <style scoped>
+/* slide */
+
+.slide-enter-active {
+  animation: slide 0.7s;
+}
+
+.slide-leave-active {
+  animation: slide 0.7s reverse;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+/* zoom */
 .zoom-leave-active,
 .zoom-enter-active {
   transition: transform 0.5s;
@@ -51,7 +75,7 @@ export default {
   transform: scale(0);
 }
 
-/* Entrada */
+/* fade */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
