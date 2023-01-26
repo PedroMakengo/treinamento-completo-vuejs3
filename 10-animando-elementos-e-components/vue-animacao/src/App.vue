@@ -18,7 +18,11 @@
         Alternar
       </button>
 
-      <transition name="slide">
+      <transition
+        name="custom-classes"
+        enter-active-class="animate__animated animate__tada"
+        leave-active-class="animate__animated animate__bounceOutRight"
+      >
         <div
           class="alert alert-primary"
           v-if="mostrar"
@@ -42,10 +46,11 @@ export default {
 
 <style scoped>
 /* slide */
-
 .slide-enter-active {
-  animation: slide 0.7s;
-  transition: opacity 0.7s;
+  animation: slide 0.7s
+    cubic-bezier(0.87, 0.36, 1, 0.23);
+  transition: opacity 0.7s
+    cubic-bezier(0.87, 0.36, 1, 0.23);
 }
 
 .slide-leave-active {
